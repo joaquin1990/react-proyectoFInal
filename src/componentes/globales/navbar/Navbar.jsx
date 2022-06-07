@@ -2,10 +2,11 @@
 import "./Navbar.css";
 import CartWidget from "../../cart/cartWidget/CartWidget";
 import { Link } from "react-router-dom";
-import { useCartContext } from "../../context/CartContext";
+import { useOrderContext } from "../../context/OrderContext";
+// import { useCartContext } from "../../context/CartContext";
 
 function NavBar() {
-  const { totalItems } = useCartContext();
+  const { totalItems } = useOrderContext();
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light navDeco d-flex">

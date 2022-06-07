@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useContext } from "react";
 import { useOrderContext } from "./OrderContext";
 
@@ -9,7 +9,6 @@ export const useCartContext = () => useContext(CartContext);
 const CartContextProvider = ({ children }) => {
   const { cartList } = useOrderContext();
   // Estados y funciones
-  // const [cartList, setCartList] = useState([]);
   const [count, setCount] = useState(0);
 
   // // Funcion para validar de que el item ya esta en el carrito
@@ -46,11 +45,11 @@ const CartContextProvider = ({ children }) => {
   //   return totPrice;
   // }
 
-  console.log(cartList);
-  function totalItems() {
-    return cartList.reduce((acc, cur) => (acc += cur.quantity), 0);
-  }
-  totalItems();
+  // console.log(cartList);
+  // function totalItems() {
+  //   return cartList.reduce((acc, cur) => (acc += cur.quantity), 0);
+  // }
+  // totalItems();
 
   return (
     <CartContext.Provider
@@ -60,7 +59,7 @@ const CartContextProvider = ({ children }) => {
         // emptyCart,
         // removeItem,
         // totalPrice,
-        totalItems,
+        // totalItems,
         count,
         setCount,
       }}

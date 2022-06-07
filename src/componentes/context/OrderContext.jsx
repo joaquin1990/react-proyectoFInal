@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { useContext } from "react";
 import {
   addDoc,
@@ -133,6 +133,10 @@ const OrderContextProvider = ({ children }) => {
     setCartList([]);
   }
 
+  function totalItems() {
+    return cartList.reduce((acc, cur) => (acc += cur.quantity), 0);
+  }
+
   return (
     <OrderContext.Provider
       value={{
@@ -143,6 +147,7 @@ const OrderContextProvider = ({ children }) => {
         totalPrice,
         emptyCart,
         removeItem,
+        totalItems,
         cartList,
         countOrder,
         setCountOrder,
