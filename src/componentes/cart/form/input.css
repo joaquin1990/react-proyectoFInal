@@ -1,0 +1,14 @@
+.inputSpan {
+  font-style: 12px;
+  color: #f44336;
+  padding: 3px;
+  display: none;
+}
+
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span {
+  display: block;
+}

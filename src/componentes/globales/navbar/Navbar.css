@@ -1,0 +1,23 @@
+.navDeco {
+  background-color: rgb(246, 240, 218);
+  height: 15vh;
+  width: 100%;
+  flex-wrap: nowrap; /*para que el boton del menu cuando se achica la pantalla, no se vaya para abajo*/
+}
+
+.listDeco {
+  justify-content: flex-end;
+}
+
+.listDeco li a {
+  font-weight: bold;
+}
+
+.claireDeco {
+  width: 80%;
+  font-size: 2rem;
+}
+
+.menuDeco {
+  width: 100%;
+}

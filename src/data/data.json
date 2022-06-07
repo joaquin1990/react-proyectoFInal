@@ -1,0 +1,74 @@
+[
+  {
+    "id": "0",
+    "initial": 1,
+    "title": "Vela de Rosa",
+    "category": "Vela",
+    "price": 760,
+    "image": "https://i.postimg.cc/62jbMMQd/vela-Aromatica.webp"
+  },
+  {
+    "id": "1",
+    "initial": 1,
+    "title": "Vela de Vainilla",
+    "category": "Vela",
+    "price": 730,
+    "image": "https://i.postimg.cc/62jbMMQd/vela-Aromatica.webp"
+  },
+  {
+    "id": "2",
+    "initial": 1,
+    "title": "Aromatizante de lavanda",
+    "category": "Aromatizante",
+    "price": 550,
+    "image": "https://i.postimg.cc/rRDn35d7/difusor1.jpg"
+  },
+  {
+    "id": "3",
+    "initial": 1,
+    "title": "Aromatizante Night",
+    "category": "Aromatizante",
+    "price": 550,
+    "image": "https://i.postimg.cc/rRDn35d7/difusor1.jpg"
+  },
+  {
+    "id": "4",
+    "initial": 1,
+    "title": "Aromatizante Daytime",
+    "category": "Aromatizante",
+    "price": 530,
+    "image": "https://i.postimg.cc/rRDn35d7/difusor1.jpg"
+  },
+  {
+    "id": "5",
+    "initial": 1,
+    "title": "Aromatizante Morning",
+    "category": "Aromatizante",
+    "price": 540,
+    "image": "https://i.postimg.cc/rRDn35d7/difusor1.jpg"
+  },
+  {
+    "id": "6",
+    "initial": 1,
+    "title": "Aromatizante de Eucaliptus",
+    "category": "Aromatizante",
+    "price": 500,
+    "image": "https://i.postimg.cc/rRDn35d7/difusor1.jpg"
+  },
+  {
+    "id": "7",
+    "initial": 1,
+    "title": "Aromatizante de Limon",
+    "category": "Aromatizante",
+    "price": 540,
+    "image": "https://i.postimg.cc/rRDn35d7/difusor1.jpg"
+  },
+  {
+    "id": "8",
+    "initial": 1,
+    "title": "Vela de Pino",
+    "category": "Vela",
+    "price": 740,
+    "image": "https://i.postimg.cc/62jbMMQd/vela-Aromatica.webp"
+  }
+]
