@@ -4,12 +4,12 @@ import { useOrderContext } from "../../../context/OrderContext";
 
 export default function ButtonCount({ handleInter, quantity, item }) {
   const { count, setCount } = useCartContext();
-  const { addToCart } = useOrderContext();
-  const { checkStock } = useOrderContext();
+  // const { addToCart } = useOrderContext();
+  const { checkStock, countOrder, setCountOrder } = useOrderContext();
 
-  const onAdd = (qty) => {
-    addToCart({ ...item, quantity: qty });
-  };
+  // const onAdd = (qty) => {
+  //   addToCart({ ...item, quantity: qty });
+  // };
 
   return (
     <div>
@@ -18,8 +18,9 @@ export default function ButtonCount({ handleInter, quantity, item }) {
         onClick={() => {
           handleInter();
           setCount(count + 1);
-          onAdd(quantity);
-          checkStock(item.id, quantity);
+          setCountOrder(countOrder + 1);
+          checkStock(item, quantity);
+          // onAdd(quantity);
         }}
       >
         Agregar al carrito

@@ -2,10 +2,10 @@
 import "./Navbar.css";
 import CartWidget from "../../cart/cartWidget/CartWidget";
 import { Link } from "react-router-dom";
-// import { useCartContext } from "../../context/CartContext";
+import { useCartContext } from "../../context/CartContext";
 
 function NavBar() {
-  // const { totalItems } = useCartContext();
+  const { totalItems } = useCartContext();
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light navDeco d-flex">
@@ -50,7 +50,7 @@ function NavBar() {
           </ul>
         </div>
         {/* Aca va condicional para que o se muestre si tiene items o no se muestre si no tiene nada. */}
-        {/* {totalItems() !== 0 ? <div className="m-2"> {totalItems()}</div> : null} */}
+        {totalItems() !== 0 ? <div className="m-2"> {totalItems()}</div> : null}
         <CartWidget />
       </nav>
     </header>

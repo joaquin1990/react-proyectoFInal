@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCartContext } from "../context/CartContext";
-// import { useOrderContext } from "../context/OrderContext";
+import { useOrderContext } from "../context/OrderContext";
 
 export default function Cart() {
   const [bool, setBool] = useState(false);
-  const { cartList, emptyCart, removeItem, totalPrice, totalItems } =
-    useCartContext();
+  const { cartList, removeItem, emptyCart, totalPrice } = useOrderContext();
 
   const handleClick = () => {
     setBool(!bool);
@@ -24,7 +22,6 @@ export default function Cart() {
       </h2>
     );
   }
-  totalItems();
   return (
     <div className="d-flex row my-5 w-75 m-auto">
       <div className="border-secondary p-3">

@@ -2,12 +2,10 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Input from "./Input";
 import { useOrderContext } from "../../context/OrderContext";
-import { useCartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
 export default function Form() {
-  const { generateOrder, updateStock } = useOrderContext();
-  const { emptyCart } = useCartContext();
+  const { generateOrder, updateStock, emptyCart } = useOrderContext();
   const [values, setValues] = useState({
     name: "",
     email: "",
