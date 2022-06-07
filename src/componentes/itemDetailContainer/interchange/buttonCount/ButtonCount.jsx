@@ -3,7 +3,8 @@ import { useCartContext } from "../../../context/CartContext";
 import { useOrderContext } from "../../../context/OrderContext";
 
 export default function ButtonCount({ handleInter, quantity, item }) {
-  const { addToCart, totalItems, cartList, count, setCount } = useCartContext();
+  const { count, setCount } = useCartContext();
+  const { addToCart } = useOrderContext();
   const { checkStock } = useOrderContext();
 
   const onAdd = (qty) => {
@@ -17,8 +18,8 @@ export default function ButtonCount({ handleInter, quantity, item }) {
         onClick={() => {
           handleInter();
           setCount(count + 1);
-          // onAdd(quantity);
-          checkStock(item.id);
+          onAdd(quantity);
+          checkStock(item.id, quantity);
         }}
       >
         Agregar al carrito

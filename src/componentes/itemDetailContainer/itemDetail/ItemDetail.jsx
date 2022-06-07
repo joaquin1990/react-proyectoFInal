@@ -3,7 +3,6 @@ import ItemCount from "../itemCount/ItemCount";
 import "./itemDetail.css";
 
 export default function ItemDetail({ item }) {
-  console.log(item);
   return (
     <div className="">
       <div className="card p-3 detailCard my-5 m-auto ">

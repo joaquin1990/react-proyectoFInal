@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../../context/CartContext";
 
 export default function InputCount() {
-  const { totalItems } = useCartContext;
   return (
     <div>
       <Link to="/">

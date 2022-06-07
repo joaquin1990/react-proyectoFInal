@@ -13,8 +13,8 @@ import Payment from "./componentes/cart/Payment";
 function App() {
   return (
     <BrowserRouter>
-      <CartContextProvider>
-        <OrderContextProvider>
+      <OrderContextProvider>
+        <CartContextProvider>
           <div className="App">
             <NavBar />
             <main>
@@ -30,8 +30,8 @@ function App() {
             </main>
             <Footer />
           </div>
-        </OrderContextProvider>
-      </CartContextProvider>
+        </CartContextProvider>
+      </OrderContextProvider>
     </BrowserRouter>
   );
 }

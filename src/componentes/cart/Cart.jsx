@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
-import { useOrderContext } from "../context/OrderContext";
+// import { useOrderContext } from "../context/OrderContext";
 
 export default function Cart() {
   const [bool, setBool] = useState(false);
