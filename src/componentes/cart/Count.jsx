@@ -1,32 +1,16 @@
-import { useOrderContext } from "../context/OrderContext";
+import { useCartContext } from "../context/CartContext";
 
 export default function Count({ item }) {
-  const { checkStock, cartList } = useOrderContext();
-  //   const [quantity, setQuantity] = useState(quantity);
+  const { checkStockInCartCount } = useCartContext();
 
-  async function increase() {
-    const index = cartList.findIndex((prod) => prod.id === item.id);
-    console.log(index);
+  function increase() {
     const newQuantity = 1;
-    await checkStock(item, newQuantity);
-    console.log(cartList);
-    // setCartList(
-    //   cartList.map((prod) =>
-    //     prod.id === item.id ? { ...prod, quantity: prod.quantity + 1 } : prod
-    //   )
-    // );
+    checkStockInCartCount(item, newQuantity);
   }
 
   function decrease() {
-    const index = cartList.findIndex((prod) => prod.id === item.id);
-    console.log(index);
     const newQuantity = -1;
-    checkStock(item, newQuantity);
-    // setCartList(
-    //   cartList.map((prod) =>
-    //     prod.id === item.id ? { ...prod, quantity: prod.quantity - 1 } : prod
-    //   )
-    // );
+    checkStockInCartCount(item, newQuantity);
   }
 
   return (
@@ -35,7 +19,6 @@ export default function Count({ item }) {
       <button
         className="btn btn-sm m-1 btn-secondary"
         onClick={() => {
-          //   checkStock(item, { ...item, quantity: item.quantity - 1 });
           decrease();
         }}
       >
