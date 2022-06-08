@@ -152,6 +152,7 @@ const OrderContextProvider = ({ children }) => {
         removeItem,
         totalItems,
         cartList,
+        setCartList,
         countOrder,
         setCountOrder,
         // quantity,
