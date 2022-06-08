@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import { IoThumbsUpSharp } from "react-icons/io5";
+import { useOrderContext } from "../../context/OrderContext";
 
 export default function Payment() {
   const [count, setCount] = useState(0);
+  const { orderId } = useOrderContext();
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,8 +34,9 @@ export default function Payment() {
                   Muchas gracias por confiar en nosotros!
                 </span>
                 <span className="fs-5">
-                  Le hemos enviado un email con todos los datos de su compra!{" "}
+                  Le hemos enviado un email con todos los datos de su compra!
                 </span>
+                <span className="fs-5">Su numero de id es {orderId}</span>
               </div>
             </div>
           </div>

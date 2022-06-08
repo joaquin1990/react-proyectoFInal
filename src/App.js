@@ -8,7 +8,7 @@ import Cart from "./componentes/cart/Cart";
 import CartContextProvider from "./componentes/context/CartContext";
 import OrderContextProvider from "./componentes/context/OrderContext";
 import Form from "./componentes/cart/form/Form";
-import Payment from "./componentes/cart/Payment";
+import Payment from "./componentes/cart/form/Payment";
 
 function App() {
   return (

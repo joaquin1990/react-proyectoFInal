@@ -17,9 +17,9 @@ export const useOrderContext = () => useContext(OrderContext);
 const OrderContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
   const [countOrder, setCountOrder] = useState(0);
-  // const [quantity, setQuantity] = useState(1);
-
+  const [orderId, setOrderId] = useState({});
   const db = getFirestore();
+
   // Next function is to create a new order in the database:
   function generateOrder(client) {
     let order = {};
@@ -35,6 +35,10 @@ const OrderContextProvider = ({ children }) => {
     const queryCollection = collection(db, "orders");
     addDoc(queryCollection, order)
       .then((resp) => console.log(resp))
+      // bring the id of the order from firestore
+      // .then(())
+      .then((resp) => console.log(resp._key.id))
+      .then((resp) => setOrderId(resp))
       .catch((err) => console.log(err));
   }
 
@@ -155,6 +159,7 @@ const OrderContextProvider = ({ children }) => {
         setCartList,
         countOrder,
         setCountOrder,
+        orderId,
         // quantity,
         // setQuantity,
       }}
