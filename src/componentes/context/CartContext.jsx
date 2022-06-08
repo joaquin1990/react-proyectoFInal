@@ -1,13 +1,13 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { useContext } from "react";
-import { useOrderContext } from "./OrderContext";
+// import { useOrderContext } from "./OrderContext";
 
 const CartContext = createContext([]);
 
 export const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
-  const { cartList } = useOrderContext();
+  // const { cartList } = useOrderContext();
   // Estados y funciones
   const [count, setCount] = useState(0);
 

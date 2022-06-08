@@ -81,9 +81,16 @@ const OrderContextProvider = ({ children }) => {
       return setCartList([...cartList, item]);
       // Item is already in cart:
     } else if (index > -1) {
-      let index = cartList.findIndex((prod) => prod.id === item.id);
-      return (cartList[index].quantity =
-        cartList[index].quantity + item.quantity);
+      // Add item.quantity to the quantity of the item in the cart:
+      return setCartList(
+        cartList.map((prod) =>
+          prod.id === item.id
+            ? { ...prod, quantity: prod.quantity + item.quantity }
+            : prod
+        )
+      );
+      // cartList[index].quantity = cartList[index].quantity + item.quantity;
+      // return setCartList([...cartList, ]);
     }
     console.log(cartList);
   }

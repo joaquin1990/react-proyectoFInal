@@ -12,7 +12,7 @@ export default function ItemDetail({ item }) {
           <img className="item__img container" src={item.image} alt="" />
           <p className="card-subtitle mb-2 text-muted">$ {item.price}</p>
         </div>
-        <ItemCount item={item} initial={1} />
+        <ItemCount item={item} initial={item.initial} />
       </div>
     </div>
   );

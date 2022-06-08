@@ -1,9 +1,7 @@
 import React from "react";
-import { useCartContext } from "../../../context/CartContext";
 import { useOrderContext } from "../../../context/OrderContext";
 
 export default function ButtonCount({ handleInter, quantity, item }) {
-  const { count, setCount } = useCartContext();
   // const { addToCart } = useOrderContext();
   const { checkStock, countOrder, setCountOrder } = useOrderContext();
 
@@ -17,10 +15,8 @@ export default function ButtonCount({ handleInter, quantity, item }) {
         className="m-2 btn btn-secondary"
         onClick={() => {
           handleInter();
-          setCount(count + 1);
-          setCountOrder(countOrder + 1);
           checkStock(item, quantity);
-          // onAdd(quantity);
+          setCountOrder(countOrder + 1);
         }}
       >
         Agregar al carrito

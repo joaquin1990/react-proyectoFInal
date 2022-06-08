@@ -6,7 +6,8 @@ import { useOrderContext } from "../../context/OrderContext";
 // import { useCartContext } from "../../context/CartContext";
 
 function NavBar() {
-  const { totalItems } = useOrderContext();
+  const { totalItems, cartList } = useOrderContext();
+  console.log(cartList);
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light navDeco d-flex">
