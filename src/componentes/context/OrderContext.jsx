@@ -17,8 +17,7 @@ export const useOrderContext = () => useContext(OrderContext);
 const OrderContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
   const [countOrder, setCountOrder] = useState(0);
-
-  console.log(cartList);
+  // const [quantity, setQuantity] = useState(1);
 
   const db = getFirestore();
   // Next function is to create a new order in the database:
@@ -89,10 +88,7 @@ const OrderContextProvider = ({ children }) => {
             : prod
         )
       );
-      // cartList[index].quantity = cartList[index].quantity + item.quantity;
-      // return setCartList([...cartList, ]);
     }
-    console.log(cartList);
   }
 
   // Function to update the stock of the products in firebase
@@ -158,6 +154,8 @@ const OrderContextProvider = ({ children }) => {
         cartList,
         countOrder,
         setCountOrder,
+        // quantity,
+        // setQuantity,
       }}
     >
       {children}

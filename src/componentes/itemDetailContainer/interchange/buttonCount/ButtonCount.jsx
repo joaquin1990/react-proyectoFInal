@@ -2,12 +2,7 @@ import React from "react";
 import { useOrderContext } from "../../../context/OrderContext";
 
 export default function ButtonCount({ handleInter, quantity, item }) {
-  // const { addToCart } = useOrderContext();
   const { checkStock, countOrder, setCountOrder } = useOrderContext();
-
-  // const onAdd = (qty) => {
-  //   addToCart({ ...item, quantity: qty });
-  // };
 
   return (
     <div>

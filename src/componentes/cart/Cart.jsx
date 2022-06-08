@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import { useOrderContext } from "../context/OrderContext";
+import Count from "./Count";
 
 export default function Cart() {
   const [bool, setBool] = useState(false);
@@ -40,19 +42,26 @@ export default function Cart() {
             </tr>
           </thead>
           <tbody>
-            {cartList.map((i, index) => (
-              <tr key={i.id}>
+            {cartList.map((item, index) => (
+              <tr key={item.id}>
                 <th scope="row">{index + 1}</th>
                 <th scope="row">
-                  <img alt={index} src={i.image} style={{ width: "3.5rem" }} />
+                  <img
+                    alt={index}
+                    src={item.image}
+                    style={{ width: "3.5rem" }}
+                  />
                 </th>
-                <td>{i.title}</td>
-                <td>{i.price}</td>
-                <td>{i.quantity}</td>
+                <td>{item.title}</td>
+                <td>{item.price}</td>
+                <td>
+                  <Count item={item} quantity={item.quantity} />
+                  {item.quantity}
+                </td>
                 <td>
                   <button
-                    onClick={() => removeItem(i)}
-                    className="btn btn-danger"
+                    onClick={() => removeItem(item)}
+                    className="btn btn-sm btn-danger"
                   >
                     x
                   </button>
@@ -66,7 +75,7 @@ export default function Cart() {
             <button className="btn h-75 mt-1 btn-danger" onClick={emptyCart}>
               Vaciar Carrito
             </button>
-            <span className="fs-4 my-2 w-25">
+            <span className="fs-4 w-25">
               <u> Precio Total: $ {totalPrice()}</u>
             </span>
           </div>
@@ -75,7 +84,7 @@ export default function Cart() {
         <div className="col-4 container d-flex row m-auto w-75 my-2">
           <Link className="m-auto" to="/form">
             <button
-              className="btn btn-success w-25 mt-3"
+              className="btn btn-success w-50 mt-1"
               onClick={() => {
                 handleClick();
               }}

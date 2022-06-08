@@ -1,9 +1,8 @@
 import React from "react";
 import InterChange from "../interchange/Interchange";
 import { useState } from "react";
-import "./ItemCount.css";
 
-export default function ItemCount({ initial, item }) {
+export default function ItemCount({ item, initial }) {
   const [quantity, setQuantity] = useState(initial);
 
   function increase() {
@@ -23,7 +22,7 @@ export default function ItemCount({ initial, item }) {
           <button className="btn btn-secondary" onClick={decrease}>
             -
           </button>
-          <span className="p-3 itemCount__quantity">{quantity}</span>
+          <span className="p-3 fs-4 itemCount__quantity">{quantity}</span>
           <button className="btn btn-secondary" onClick={increase}>
             +
           </button>
