@@ -7,10 +7,7 @@
 
 .listDeco {
   justify-content: flex-end;
-}
-
-.listDeco li a {
-  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .claireDeco {
@@ -18,6 +15,7 @@
   font-size: 2rem;
 }
 
-.menuDeco {
-  width: 100%;
+.liDeco li p {
+  color: black;
+  font-weight: lighter;
 }
