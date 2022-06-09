@@ -36,7 +36,13 @@ export default function Payment() {
                 <span className="fs-5">
                   Le hemos enviado un email con todos los datos de su compra!
                 </span>
-                <span className="fs-5">Su numero de id es: {orderId}</span>
+                <span className="fs-5">
+                  Su numero de id es:{" "}
+                  <p className="fw-bolder">
+                    {" "}
+                    <u>{orderId}</u>
+                  </p>
+                </span>
               </div>
             </div>
           </div>

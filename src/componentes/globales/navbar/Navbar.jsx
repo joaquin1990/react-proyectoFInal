@@ -74,7 +74,10 @@ function NavBar() {
             {" "}
             {/* Aca va condicional para que o se muestre si tiene items o no se muestre si no tiene nada. */}
             {totalItems() !== 0 ? (
-              <div className="justify-content-end"> {totalItems()}</div>
+              <div className="justify-content-end">
+                {" "}
+                <p className="fw-bolder">{totalItems()}</p>{" "}
+              </div>
             ) : null}
             <div className="justify-content-end me-5 ms-2">
               <CartWidget />
