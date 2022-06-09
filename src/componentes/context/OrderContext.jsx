@@ -2,8 +2,6 @@ import { createContext, useState } from "react";
 import { useContext } from "react";
 import {
   addDoc,
-  docs,
-  docRef,
   collection,
   documentId,
   getDocs,
@@ -11,7 +9,6 @@ import {
   query,
   where,
   writeBatch,
-  DocumentReference,
 } from "firebase/firestore";
 
 const OrderContext = createContext([]);
@@ -20,7 +17,7 @@ export const useOrderContext = () => useContext(OrderContext);
 const OrderContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
   const [countOrder, setCountOrder] = useState(0);
-  const [orderId, setOrderId] = useState({});
+  const [orderId, setOrderId] = useState(null);
   const db = getFirestore();
 
   // Next function is to create a new order in the database:
@@ -37,9 +34,8 @@ const OrderContextProvider = ({ children }) => {
     });
     const queryCollection = collection(db, "orders");
     addDoc(queryCollection, order)
+      .then(({ id }) => setOrderId(id))
       .then((resp) => console.log(resp))
-      // now, console.log the id of response:
-      // .then((resp) => )
       .then((resp) => console.log(resp.id))
       .catch((err) => console.log(err));
   }

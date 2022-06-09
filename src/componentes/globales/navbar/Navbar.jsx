@@ -76,7 +76,7 @@ function NavBar() {
             {totalItems() !== 0 ? (
               <div className="justify-content-end"> {totalItems()}</div>
             ) : null}
-            <div className="justify-content-end me-5">
+            <div className="justify-content-end me-5 ms-2">
               <CartWidget />
             </div>
           </div>
