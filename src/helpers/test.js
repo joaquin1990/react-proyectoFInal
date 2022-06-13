@@ -1,16 +1,12 @@
-const objeto = {
-  nombre: "Joaquin",
-  apellido: "Perez",
-  edad: "23",
-};
-
-console.log(objeto, "Objeto sin nada");
-console.log(
-  { ...objeto },
-  "Objeto destructurado, y vuelto a poner en un objeto"
-);
-console.log(
-  { ...objeto, nombre: "Felipe" },
-  "objeto destructurado cambiando nombre"
-);
-console.log({ ...objeto, peso: 80 }, "objeto destructurado agregando peso");
+// const db = getFirestore();
+// const dbQuery = doc(db, "users", "admin");
+// getDoc(dbQuery)
+//     .then((resp) => {
+//         if (resp.data().user === valuesAdmin.user && resp.data().password === valuesAdmin.password) {
+//             window.location.href = "/admin/products";
+//         } else {
+//             alert("Usuario o contraseña incorrectos");
+//         }
+//         }
+//     )
+//     .catch((err) => console.log(err));

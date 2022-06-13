@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useOrderContext } from "../../context/OrderContext";
 
 function NavBar() {
-  const { totalItems, cartList } = useOrderContext();
+  const { totalItems } = useOrderContext();
   return (
     <header>
       <nav className="navDeco">
@@ -13,26 +13,6 @@ function NavBar() {
             <p className="claireDeco ms-5">Claire</p>
           </Link>
           <div className="d-flex w-75 container">
-            {/* <div className="d-flex flex-column p-3 align-items-start container w-50">
-              <div className="input-group input-group-sm w-25 p-2 justify-content-end">
-                <input
-                  placeholder="Usuario"
-                  type="text"
-                  className="form-control "
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm"
-                ></input>
-              </div>
-              <div className="input-group input-group-sm w-25  p-2">
-                <input
-                  placeholder="Constraseña"
-                  type="text"
-                  className="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm"
-                ></input>
-              </div>
-            </div> */}
             <div className="w-100  d-flex ">
               <ul className="navbar-nav w-100 flex-row justify-content-end align-items-center liDeco  mt-2 me-2">
                 <li className="nav-item active p-2">
@@ -61,7 +41,7 @@ function NavBar() {
                 </li>
                 <li className="nav-item active p-2">
                   <Link
-                    to="/"
+                    to="/admin"
                     style={{ textDecoration: "none", color: "grey" }}
                   >
                     <p className="nav-link">Login</p>
