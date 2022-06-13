@@ -56,7 +56,7 @@ export default function Cart() {
                 <td>{item.price}</td>
                 <td>
                   <Count item={item} quantity={item.quantity} />
-                  {item.quantity}
+               
                 </td>
                 <td>
                   <button

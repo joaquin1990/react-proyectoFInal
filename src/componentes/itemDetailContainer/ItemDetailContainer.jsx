@@ -10,14 +10,19 @@ export default function ItemDetailContainer() {
   const [product, setProduct] = useState({});
   const { id2 } = useParams();
 
+
+const getSelectedProduct = (query) => {
+  getDoc(query)
+  .then((resp) => setProduct({ id: resp.id, ...resp.data() }))
+  .catch((err) => console.log(err))
+  .finally(() => setLoader(false));
+  }
+
   useEffect(() => {
     setTimeout(() => {
       const db = getFirestore();
       const dbQuery = doc(db, "products", id2);
-      getDoc(dbQuery)
-        .then((resp) => setProduct({ id: resp.id, ...resp.data() }))
-        .catch((err) => console.log(err))
-        .finally(() => setLoader(false));
+      getSelectedProduct(dbQuery)
     }, 500);
   }, [id2]);
 

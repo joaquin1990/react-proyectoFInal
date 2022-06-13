@@ -15,29 +15,27 @@ export default function ItemListContainer() {
   const [loader, setLoader] = useState(true);
   const { id } = useParams();
 
+  const getDifferentCollections = (queryCollection) => {
+    getDocs(queryCollection)
+    .then((resp) =>
+      setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
+    )
+    .catch((err) => console.log(err))
+    .finally(() => setLoader(false));
+  }
+
   useEffect(() => {
+    const db = getFirestore();
+    const queryCollection = collection(db, "products");
+    
     if (id) {
-      const db = getFirestore();
-      const queryCollection = collection(db, "products");
       const queryCollectionFilter = query(
         queryCollection,
         where("category", "==", id)
       );
-      getDocs(queryCollectionFilter)
-        .then((resp) =>
-          setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
-        )
-        .catch((err) => console.log(err))
-        .finally(() => setLoader(false));
+      getDifferentCollections(queryCollectionFilter)
     } else {
-      const db = getFirestore();
-      const queryCollection = collection(db, "products");
-      getDocs(queryCollection)
-        .then((resp) =>
-          setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
-        )
-        .catch((err) => console.log(err))
-        .finally(() => setLoader(false));
+      getDifferentCollections(queryCollection)
     }
   }, [id]);
 

@@ -24,6 +24,7 @@ export default function Count({ item }) {
       >
         -
       </button>
+      {item.quantity}
       <button
         className="btn btn-sm m-1 btn-secondary"
         onClick={() => {

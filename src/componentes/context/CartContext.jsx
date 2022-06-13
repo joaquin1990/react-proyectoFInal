@@ -2,16 +2,13 @@ import { createContext, useState } from "react";
 import { useContext } from "react";
 import { useOrderContext } from "./OrderContext";
 import {
-  // addDoc,
   collection,
   documentId,
   getDocs,
   getFirestore,
   query,
   where,
-  // writeBatch,
 } from "firebase/firestore";
-// import { useOrderContext } from "./OrderContext";
 
 const CartContext = createContext([]);
 
@@ -26,7 +23,6 @@ const CartContextProvider = ({ children }) => {
   async function checkStockInCartCount(item, quantity) {
     let itemSelected = {};
     const queryCollection = collection(db, "products");
-    //Como hacer para buscar por id igual al id que le estamos pasando con el parametro.
     const queryCollectionFilter = await query(
       queryCollection,
       where(documentId(), "==", item.id)

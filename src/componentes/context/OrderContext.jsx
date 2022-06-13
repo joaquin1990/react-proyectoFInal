@@ -35,7 +35,6 @@ const OrderContextProvider = ({ children }) => {
     const queryCollection = collection(db, "orders");
     addDoc(queryCollection, order)
       .then(({ id }) => setOrderId(id))
-      .then((resp) => console.log(resp))
       .then((resp) => console.log(resp.id))
       .catch((err) => console.log(err));
   }
@@ -81,7 +80,7 @@ const OrderContextProvider = ({ children }) => {
     } else if (cartList.length > 0 && index === -1) {
       return setCartList([...cartList, item]);
       // Item is already in cart:
-    } else if (index > -1) {
+    } else if (index >= 0) {
       // Add item.quantity to the quantity of the item in the cart:
       return setCartList(
         cartList.map((prod) =>
