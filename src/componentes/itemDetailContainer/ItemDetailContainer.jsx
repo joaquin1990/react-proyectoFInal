@@ -11,7 +11,7 @@ export default function ItemDetailContainer() {
   const { id2 } = useParams();
 
 
-const getSelectedProduct = (query) => {
+const getSelectedProductt = (query) => {
   getDoc(query)
   .then((resp) => setProduct({ id: resp.id, ...resp.data() }))
   .catch((err) => console.log(err))
