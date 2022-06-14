@@ -6,7 +6,10 @@ import {
   query,
 } from "firebase/firestore";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import "./admin.css";
+import NewButton from "./NewButton";
 
 export default function Admin() {
   const [valuesAdmin, setValuesAdmin] = useState({
@@ -22,7 +25,9 @@ export default function Admin() {
     stock: "",
   });
   const [access, setAccess] = useState(false);
+  const [newButton, setNewButton] = useState(false);
   const db = getFirestore();
+  const MySwal = withReactContent(Swal);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,6 +67,33 @@ export default function Admin() {
     addDoc(queryCollection, product)
       .then((resp) => console.log(resp))
       .catch((err) => console.log(err));
+    MySwal.fire({
+      title: "Producto Agregado",
+      text: "El producto se ha agregado correctamente",
+      icon: "success",
+      confirmButtonText: "OK",
+      confirmButtonColor: "#00bcd4",
+      showConfirmButton: true,
+      showCloseButton: true,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      focusConfirm: false,
+      timer: 3000,
+      timerProgressBar: true,
+      onBeforeOpen: () => {
+        MySwal.showLoading();
+      },
+    });
+    setProductValues({
+      title: "",
+      category: "",
+      image: "",
+      initial: "",
+      price: "",
+      stock: "",
+    });
+    setNewButton(true);
   };
 
   const addProductValues = (e) => {
@@ -202,6 +234,7 @@ export default function Admin() {
           >
             Agregar Producto
           </button>
+          {newButton ? <NewButton /> : null}
         </form>
       )}
     </div>
