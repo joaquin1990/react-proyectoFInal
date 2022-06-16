@@ -56,7 +56,6 @@ export default function Cart() {
                 <td>{item.price}</td>
                 <td>
                   <Count item={item} quantity={item.quantity} />
-               
                 </td>
                 <td>
                   <button
@@ -82,7 +81,7 @@ export default function Cart() {
         </div>
 
         <div className="col-4 container d-flex row m-auto w-75 my-2">
-          <Link className="m-auto" to="/form">
+          <Link className="m-auto" to="/form1">
             <button
               className="btn btn-success w-50 mt-1"
               onClick={() => {

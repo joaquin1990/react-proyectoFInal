@@ -6,13 +6,24 @@ import {
   query,
 } from "firebase/firestore";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import "./admin.css";
 import NewButton from "./NewButton";
 
 export default function Admin() {
-  const [valuesAdmin, setValuesAdmin] = useState({
+  const { reset, register } = useForm({
+    defaultValues: {
+      title: "",
+      category: "",
+      image: "",
+      initial: "",
+      price: "",
+      stock: "",
+    },
+  });
+  const [adminValues, setAdminValues] = useState({
     user: "",
     password: "",
   });
@@ -35,7 +46,7 @@ export default function Admin() {
 
   // Function to valid the user with the paseward in firebase
   const loginValues = (e) => {
-    setValuesAdmin({ ...valuesAdmin, [e.target.name]: e.target.value });
+    setAdminValues({ ...adminValues, [e.target.name]: e.target.value });
   };
 
   const checkDetails = async () => {
@@ -48,8 +59,8 @@ export default function Admin() {
       });
     });
     if (
-      adminLoginDetails.user === valuesAdmin.user &&
-      adminLoginDetails.password === valuesAdmin.password
+      adminLoginDetails.user === adminValues.user &&
+      adminLoginDetails.password === adminValues.password
     ) {
       setAccess(true);
     }
@@ -73,17 +84,6 @@ export default function Admin() {
       icon: "success",
       confirmButtonText: "OK",
       confirmButtonColor: "#00bcd4",
-      showConfirmButton: true,
-      showCloseButton: true,
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      allowEnterKey: false,
-      focusConfirm: false,
-      timer: 3000,
-      timerProgressBar: true,
-      onBeforeOpen: () => {
-        MySwal.showLoading();
-      },
     });
     setProductValues({
       title: "",
@@ -112,8 +112,9 @@ export default function Admin() {
           </h2>
           <div className="input-group input-group-sm w-50 m-3 justify-content-end">
             <input
+              {...register("user")}
               key="1"
-              name="user"
+              //   name="user"
               placeholder="Usuario"
               type="text"
               className="form-control inputStyle"
@@ -124,8 +125,9 @@ export default function Admin() {
           </div>
           <div className="input-group input-group-sm w-50">
             <input
+              {...register("password")}
               key="2"
-              name="password"
+              //   name="password"
               placeholder="Constraseña"
               type="password"
               className="form-control inputStyle"
@@ -155,8 +157,8 @@ export default function Admin() {
           </h2>
           <div className="input-group input-group-sm w-50 mt-3 mb-2">
             <input
+              {...register("title")}
               key="3"
-              name="title"
               placeholder="Nombre del Producto"
               type="text"
               className="form-control inputStyle"
@@ -167,8 +169,8 @@ export default function Admin() {
           </div>
           <div className="input-group input-group-sm w-50 mb-2">
             <input
+              {...register("category")}
               key="4"
-              name="category"
               placeholder="Categoria"
               type="text"
               className="form-control inputStyle"
@@ -179,8 +181,8 @@ export default function Admin() {
           </div>
           <div className="input-group input-group-sm w-50 mb-2">
             <input
+              {...register("image")}
               key="5"
-              name="image"
               placeholder="URL de la imagen"
               type="text"
               className="form-control inputStyle"
@@ -191,8 +193,8 @@ export default function Admin() {
           </div>
           <div className="input-group input-group-sm w-50 mb-2">
             <input
+              {...register("initial")}
               key="6"
-              name="initial"
               placeholder="Cantidad inicial"
               type="number"
               className="form-control inputStyle"
@@ -203,8 +205,8 @@ export default function Admin() {
           </div>
           <div className="input-group input-group-sm w-50 mb-2">
             <input
+              {...register("price")}
               key="7"
-              name="price"
               placeholder="Precio"
               type="number"
               className="form-control inputStyle"
@@ -215,8 +217,8 @@ export default function Admin() {
           </div>
           <div className="input-group input-group-sm w-50">
             <input
+              {...register("stock")}
               key="8"
-              name="stock"
               placeholder="Stock"
               type="number"
               className="form-control inputStyle"
@@ -228,6 +230,7 @@ export default function Admin() {
           <button
             onClick={() => {
               addProduct();
+              reset();
             }}
             type="submit"
             className="btn btn-secondary w-25 mt-3"

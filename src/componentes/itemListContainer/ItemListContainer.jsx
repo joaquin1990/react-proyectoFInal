@@ -17,30 +17,30 @@ export default function ItemListContainer() {
 
   const getDifferentCollections = (queryCollection) => {
     getDocs(queryCollection)
-    .then((resp) =>
-      setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
-    )
-    .catch((err) => console.log(err))
-    .finally(() => setLoader(false));
-  }
+      .then((resp) =>
+        setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
+      )
+      .catch((err) => console.log(err))
+      .finally(() => setLoader(false));
+  };
 
   useEffect(() => {
     const db = getFirestore();
     const queryCollection = collection(db, "products");
-    
+
     if (id) {
       const queryCollectionFilter = query(
         queryCollection,
         where("category", "==", id)
       );
-      getDifferentCollections(queryCollectionFilter)
+      getDifferentCollections(queryCollectionFilter);
     } else {
-      getDifferentCollections(queryCollection)
+      getDifferentCollections(queryCollection);
     }
   }, [id]);
 
   return (
-    <div className="m-5 mt-5 container m-auto">
+    <div className="mt-5 mb-5 container m-auto">
       {loader ? (
         <span className="fs-5 mt-5">
           <Spinner className="me-3" animation="border" variant="secondary" />. .

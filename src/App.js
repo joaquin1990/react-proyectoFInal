@@ -7,9 +7,9 @@ import ItemListContainer from "./componentes/itemListContainer/ItemListContainer
 import Cart from "./componentes/cart/Cart";
 import CartContextProvider from "./componentes/context/CartContext";
 import OrderContextProvider from "./componentes/context/OrderContext";
-import Form from "./componentes/cart/form/Form";
 import Payment from "./componentes/cart/form/Payment";
 import Admin from "./componentes/globales/navbar/Admin";
+import Form1 from "./componentes/cart/form/Form1";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
                 <Route path="/category/:id" element={<ItemListContainer />} />
                 <Route path="/detail/:id2" element={<ItemDetailContainer />} />
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/form" element={<Form />} />
+                <Route path="/form1" element={<Form1 />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/Payment" element={<Payment />} />
                 <Route path="/*" element={<Navigate to="/" replace />} />

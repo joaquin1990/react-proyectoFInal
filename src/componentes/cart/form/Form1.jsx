@@ -4,7 +4,7 @@ import Input from "./Input";
 import { useOrderContext } from "../../context/OrderContext";
 import { Link } from "react-router-dom";
 
-export default function Form() {
+export default function Form1() {
   const { generateOrder, updateStock, emptyCart } = useOrderContext();
   const [values, setValues] = useState({
     name: "",
