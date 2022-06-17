@@ -1,7 +1,7 @@
+import { useOrderContext } from "../../context/OrderContext";
 import "./Navbar.css";
 import CartWidget from "../../cart/cartWidget/CartWidget";
 import { Link } from "react-router-dom";
-import { useOrderContext } from "../../context/OrderContext";
 
 function NavBar() {
   const { totalItems } = useOrderContext();
@@ -51,12 +51,9 @@ function NavBar() {
             </div>
           </div>
           <div className="d-flex align-items-center">
-            {" "}
-            {/* Aca va condicional para que o se muestre si tiene items o no se muestre si no tiene nada. */}
             {totalItems() !== 0 ? (
               <div className="justify-content-end">
-                {" "}
-                <p className="mt-2">{totalItems()}</p>{" "}
+                <p className="mt-2 me-1">{totalItems()}</p>
               </div>
             ) : null}
             <div className="justify-content-end ">

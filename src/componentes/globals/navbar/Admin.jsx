@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+import NewButton from "./NewButton";
+import { useForm } from "react-hook-form";
 import {
   addDoc,
   collection,
@@ -5,12 +8,9 @@ import {
   getFirestore,
   query,
 } from "firebase/firestore";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import "./admin.css";
-import NewButton from "./NewButton";
 
 export default function Admin() {
   const { reset, register } = useForm({
@@ -44,7 +44,7 @@ export default function Admin() {
     e.preventDefault();
   };
 
-  // Function to valid the user with the paseward in firebase
+  // Function to valid the user and password with firebase:
   const loginValues = (e) => {
     setAdminValues({ ...adminValues, [e.target.name]: e.target.value });
   };
@@ -114,7 +114,6 @@ export default function Admin() {
             <input
               {...register("user")}
               key="1"
-              //   name="user"
               placeholder="Usuario"
               type="text"
               className="form-control inputStyle"
@@ -127,7 +126,6 @@ export default function Admin() {
             <input
               {...register("password")}
               key="2"
-              //   name="password"
               placeholder="Constraseña"
               type="password"
               className="form-control inputStyle"
@@ -147,7 +145,6 @@ export default function Admin() {
           </button>
         </form>
       ) : (
-        //   Here is where it changes.
         <form
           onSubmit={handleSubmit}
           className="d-flex flex-column p-3 align-items-center container w-50 mt-5"

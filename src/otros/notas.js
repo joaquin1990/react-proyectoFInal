@@ -1,5 +1,3 @@
-// - Donde es que se pone el disable para dejar activado o no a un producto? con Firestore.
-// - Delete all the console.logs.
 // - Take away all the things that are not used in the code.
 // - Delete all the commented code.
 // - Organice the imports in the right order. Comments on 10:55 mins
