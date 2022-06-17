@@ -8,11 +8,11 @@ function NavBar() {
   return (
     <header>
       <nav className="navDeco">
-        <div className="w-100 d-flex align-items-center h-100">
+        <div className="w-100 d-flex align-items-center h-100 container">
           <Link to="/" style={{ textDecoration: "none", color: "grey" }}>
-            <p className="claireDeco ms-5">Claire</p>
+            <p className="claireDeco ">Claire</p>
           </Link>
-          <div className="d-flex w-75 container">
+          <div className="d-flex w-100 container">
             <div className="w-100  d-flex ">
               <ul className="navbar-nav w-100 flex-row justify-content-end align-items-center liDeco  mt-2 me-2">
                 <li className="nav-item active p-2">
@@ -20,7 +20,7 @@ function NavBar() {
                     to="/"
                     style={{ textDecoration: "none", color: "grey" }}
                   >
-                    <p className="nav-link ">Home</p>
+                    <p className="nav-link fs-5 ">Home</p>
                   </Link>
                 </li>
                 <li className="nav-item p-2">
@@ -28,7 +28,7 @@ function NavBar() {
                     to="/category/Aromatizante"
                     style={{ textDecoration: "none", color: "grey" }}
                   >
-                    <p className="nav-link">Aromatizantes</p>
+                    <p className="nav-link fs-5 ">Aromatizantes</p>
                   </Link>
                 </li>
                 <li className="nav-item p-2">
@@ -36,7 +36,7 @@ function NavBar() {
                     to="/category/Vela"
                     style={{ textDecoration: "none", color: "grey" }}
                   >
-                    <p className="nav-link">Velas</p>
+                    <p className="nav-link fs-5 ">Velas</p>
                   </Link>
                 </li>
                 <li className="nav-item active p-2">
@@ -44,7 +44,7 @@ function NavBar() {
                     to="/admin"
                     style={{ textDecoration: "none", color: "grey" }}
                   >
-                    <p className="nav-link">Login</p>
+                    <p className="nav-link fs-5 ">Login</p>
                   </Link>
                 </li>
               </ul>
@@ -56,10 +56,10 @@ function NavBar() {
             {totalItems() !== 0 ? (
               <div className="justify-content-end">
                 {" "}
-                <p className="fw-bolder">{totalItems()}</p>{" "}
+                <p className="mt-2">{totalItems()}</p>{" "}
               </div>
             ) : null}
-            <div className="justify-content-end me-5 ms-2">
+            <div className="justify-content-end ">
               <CartWidget />
             </div>
           </div>

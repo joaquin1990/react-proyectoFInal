@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-
-import { Link } from "react-router-dom";
-import { useOrderContext } from "../context/OrderContext";
 import Count from "./Count";
+import { useOrderContext } from "../context/OrderContext";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const [bool, setBool] = useState(false);
@@ -11,8 +10,6 @@ export default function Cart() {
   const handleClick = () => {
     setBool(!bool);
   };
-
-  // Condicional para que en el caso de que el carrito este vacio, nos permita volver a la tienda a seguir comprando.
   if (cartList.length === 0) {
     return (
       <h2 className="m-4 mt-5">
@@ -79,7 +76,6 @@ export default function Cart() {
             </span>
           </div>
         </div>
-
         <div className="col-4 container d-flex row m-auto w-75 my-2">
           <Link className="m-auto" to="/form1">
             <button

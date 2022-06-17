@@ -14,19 +14,19 @@ export default function Count({ item }) {
   }
 
   return (
-    <div>
+    <div className="d-flex align-items-center justify-content-center">
       {" "}
       <button
-        className="btn btn-sm m-1 btn-secondary"
+        className="btn btn-sm m-2 btn-secondary"
         onClick={() => {
           decrease();
         }}
       >
         -
       </button>
-      {item.quantity}
+      <p className="mt-1"> {item.quantity}</p>
       <button
-        className="btn btn-sm m-1 btn-secondary"
+        className="btn btn-sm m-2 btn-secondary"
         onClick={() => {
           increase();
         }}

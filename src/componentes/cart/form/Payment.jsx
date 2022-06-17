@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useOrderContext } from "../../context/OrderContext";
 import { Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import { IoThumbsUpSharp } from "react-icons/io5";
-import { useOrderContext } from "../../context/OrderContext";
 
 export default function Payment() {
   const [count, setCount] = useState(0);

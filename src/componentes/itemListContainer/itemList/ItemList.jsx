@@ -11,6 +11,7 @@ export default function ItemList({ items }) {
             title={prod.title}
             price={prod.price}
             image={prod.image}
+            stock={prod.stock}
           />
         ))}
       </div>

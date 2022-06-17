@@ -1,14 +1,14 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import NavBar from "./componentes/globales/navbar/Navbar.jsx";
-import Footer from "./componentes/globales/footer/Footer.jsx";
+import NavBar from "./componentes/globals/navbar/Navbar.jsx";
+import Footer from "./componentes/globals/footer/Footer.jsx";
 import ItemDetailContainer from "./componentes/itemDetailContainer/ItemDetailContainer";
 import ItemListContainer from "./componentes/itemListContainer/ItemListContainer";
 import Cart from "./componentes/cart/Cart";
 import CartContextProvider from "./componentes/context/CartContext";
 import OrderContextProvider from "./componentes/context/OrderContext";
 import Payment from "./componentes/cart/form/Payment";
-import Admin from "./componentes/globales/navbar/Admin";
+import Admin from "./componentes/globals/navbar/Admin";
 import Form1 from "./componentes/cart/form/Form1";
 
 function App() {

@@ -15,7 +15,6 @@ const CartContext = createContext([]);
 export const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
-  // Estados y funciones
   const [count, setCount] = useState(0);
   const { cartList, setCartList } = useOrderContext();
   const db = getFirestore();
@@ -51,7 +50,6 @@ const CartContextProvider = ({ children }) => {
       );
     return false;
   }
-
   async function addToCart1(item) {
     return setCartList(
       cartList.map((prod) =>

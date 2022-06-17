@@ -1,5 +1,5 @@
-import { ImCart } from "react-icons/im";
 import { Link } from "react-router-dom";
+import { ImCart } from "react-icons/im";
 
 function CartWidget({ cartQuantity }) {
   return (

@@ -35,7 +35,6 @@ const OrderContextProvider = ({ children }) => {
     const queryCollection = collection(db, "orders");
     addDoc(queryCollection, order)
       .then(({ id }) => setOrderId(id))
-      .then((resp) => console.log(resp.id))
       .catch((err) => console.log(err));
   }
 
@@ -53,21 +52,40 @@ const OrderContextProvider = ({ children }) => {
         itemSelected = doc.data();
       });
     });
-    //To make sure the quantity is not higher than the stock when stock is not 0:
-    if (itemSelected.stock > 0 && itemSelected.stock < quantity) {
-      alert(
-        `Contamos unicamente con ${itemSelected.stock} unidad/es de este producto`
-      );
+    // Function to Check if there is any stock, is going to be used after cart filter.
+    const isThereAnyStock = () => {
+      //To make sure the quantity is not higher than the stock when stock is not 0:
+      if (itemSelected.stock > 0 && itemSelected.stock < quantity) {
+        alert(
+          `Contamos unicamente con ${itemSelected.stock} unidad/es de este producto`
+        );
+        return false;
+      }
+      // When stock is higher than quantity selected, or, there is no stock:
+      if (itemSelected.stock >= quantity) {
+        return addToCart({ ...item, quantity: quantity });
+      } else
+        alert(
+          `Lamentablemente no contamos con mas stock de "${itemSelected.title}"`
+        );
       return false;
+    };
+    const index = cartList.findIndex((prod) => prod.id === item.id);
+
+    // Cart Filter:
+    // Is There Any Stock Inclouding Cart Items?
+    if (cartList[index]) {
+      if (cartList[index].quantity + quantity <= itemSelected.stock) {
+        // console.log(cartList[index].quantity < itemSelected.stock);
+        return isThereAnyStock();
+      } else
+        alert(
+          `Contamos unicamente con ${itemSelected.stock} unidad/es de ${itemSelected.title}. Mil disculpas! `
+        );
     }
-    // When stock is higher than quantity selected, or, there is no stock:
-    if (itemSelected.stock >= quantity) {
-      return addToCart({ ...item, quantity: quantity });
-    } else
-      alert(
-        `Lamentablemente no contamos con mas stock de "${itemSelected.title}"`
-      );
-    return false;
+    if (index === -1) {
+      return isThereAnyStock();
+    }
   }
 
   //  Function to add items to the cart:
@@ -126,17 +144,17 @@ const OrderContextProvider = ({ children }) => {
     return totPrice;
   }
 
-  // Funcion para quitar items del cart:
+  // Function to remove items from the cart:
   function removeItem(item) {
     const newCart = cartList.filter((prod) => prod.id !== item.id);
     setCartList(newCart);
   }
 
-  // Funcion para vaciar el carrito:
+  // Function to remove all items from the cart:
   function emptyCart() {
     setCartList([]);
   }
-
+  // Function to update the quantity of item in the cart:
   function totalItems() {
     return cartList.reduce((acc, cur) => (acc += cur.quantity), 0);
   }

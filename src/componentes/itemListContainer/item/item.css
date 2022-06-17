@@ -3,3 +3,19 @@
   height: 200px;
   padding: 10px;
 }
+
+.box_img:hover {
+  transform: scale(1.1);
+  z-index: 2;
+  transition: 400ms;
+}
+
+.stock_message {
+  position: absolute;
+  margin-left: 150px;
+  margin-bottom: 40px;
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+  z-index: 2;
+}
