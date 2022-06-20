@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+Claire Sprays and candels.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Final Proyect ReactJS - Joaquin Zerbino
 
-## Available Scripts
+This is an eccommerce website that sells candels and aromatic sprays. The entire website was built with ReactJS.
 
-In the project directory, you can run:
+### Pages
 
-### `npm start`
+- Home: The principal page shows the Navbar, with the name of the brand, a "Home" Link that redirects to the Home page where all the products are shown. All the products came from Firebase, displayed in a grid, and the user can click on one of them to see more information about it.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- "Aromatizantes" Link that redirects to a page that shows only the products that are aromatic Sprays.
+- "Candles" Link that redirects to a page that shows only the products of that category.
+- Then the link "Login", that redirects to a page where the Admin can enter its credentials to log in, and add new products.
+- And then the widget "Cart" that shows the number of products in the cart, the user can manage it by adding or removing products, or clicking on the "Realizar Compra" button, that redirects to a page where the user has to fill a form with his/her information to complete the purchase.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Libraries
 
-### `npm test`
+- React Router Dom. It is a component colection that allows to create a nice navigation system. It is used to facilitate the dinamic navegation of the website.
+- Firebase. It is a library that allows to connect to a database. It is used to store the products and their information.
+- React icons. This comprehensive library contains many different icon sets such as Ant Design Icons, Font Awesome, Grommet Icons, Ionicons, VS Code Icons, Material Design Icons. It was used to get the cart icon among others.
+- React Bootstrap. It is a library that allows to create a responsive website, quickly and easily. It was used to create all the website. The Spinner component was used to show the loading animation.
+- React Hook Form. It is a library that allows to create a form with validation. It was used to manage the form of the user, to validate the usar and the password, and the form that was created to load products into the database that automatically are shown in the website.
+- Sweetalert2. This library was used to show many messages to the user in all the website navigation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Deploy
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The website was deployed in Netlify, the link can be found here:
