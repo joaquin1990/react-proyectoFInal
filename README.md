@@ -24,4 +24,4 @@ This is an eccommerce website that sells candels and aromatic sprays. The entire
 
 ### Deploy
 
-The website was deployed in Netlify, the link can be found here:
+The website was deployed in Netlify, the link can be found here: https://claireuy.netlify.app/
