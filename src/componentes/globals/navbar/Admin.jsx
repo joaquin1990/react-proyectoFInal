@@ -63,9 +63,15 @@ export default function Admin() {
       adminLoginDetails.password === adminValues.password
     ) {
       setAccess(true);
+    } else {
+      MySwal.fire({
+        title: "Error",
+        text: "Usuario o contraseña incorrectos",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     }
   };
-
   const addProduct = () => {
     let product = {};
     product.title = productValues.title;
@@ -134,15 +140,21 @@ export default function Admin() {
               onChange={loginValues}
             ></input>
           </div>
-          <button
-            onClick={() => {
-              checkDetails();
-            }}
-            type="submit"
-            className="btn btn-secondary w-25 mt-3"
-          >
-            Ingresar
-          </button>
+          <div className="mt-2">
+            {adminValues.user !== adminValues.password &&
+            adminValues.password.length >= 8 ? (
+              <p className="text-danger mt-2">La contraseña es incorrecta</p>
+            ) : null}
+            <button
+              onClick={() => {
+                checkDetails();
+              }}
+              type="submit"
+              className="btn btn-secondary"
+            >
+              Ingresar
+            </button>
+          </div>
         </form>
       ) : (
         <form
