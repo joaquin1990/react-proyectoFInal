@@ -6,11 +6,11 @@ This is an eccommerce website that sells candels and aromatic sprays. The entire
 
 ### Pages
 
-- Home: The principal page shows the Navbar, with the name of the brand, a "Home" Link that redirects to the Home page where all the products are shown. All the products came from Firebase, displayed in a grid, and the user can click on one of them to see more information about it.
+- Home: The principal page shows the Navbar, with the name of the brand, a "Home" Link that redirects to the Home page where all the products are shown. All the products come from Firebase, displayed in a grid, and the user can click on one of them to see more information about it.
 
-- "Aromatizantes" Link that redirects to a page that shows only the products that are aromatic Sprays.
-- "Candles" Link that redirects to a page that shows only the products of that category.
-- Then the link "Login", that redirects to a page where the Admin can enter its credentials to log in, and add new products.
+- "Aromatizantes" Link that redirects to the page that shows only the products that are aromatic Sprays.
+- "Candles" Link that redirects to the page that shows only the products of that category.
+- Then the link "Login", that redirects to the page where the Admin can enter its credentials to log in, and add new products.
 - And then the widget "Cart" that shows the number of products in the cart, the user can manage it by adding or removing products, or clicking on the "Realizar Compra" button, that redirects to a page where the user has to fill a form with his/her information to complete the purchase.
 
 ### Libraries

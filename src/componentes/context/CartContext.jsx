@@ -9,6 +9,8 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const CartContext = createContext([]);
 
@@ -18,6 +20,7 @@ const CartContextProvider = ({ children }) => {
   const [count, setCount] = useState(0);
   const { cartList, setCartList } = useOrderContext();
   const db = getFirestore();
+  const MySwal = withReactContent(Swal);
 
   async function checkStockInCartCount(item, quantity) {
     let itemSelected = {};
@@ -36,18 +39,22 @@ const CartContextProvider = ({ children }) => {
       itemSelected.stock > 0 &&
       itemSelected.stock < item.quantity + quantity
     ) {
-      alert(
-        `Contamos unicamente con ${itemSelected.stock} unidad/es de este producto`
-      );
+      MySwal.fire({
+        icon: "error",
+        title: "Mil disculpas!",
+        text: `Contamos unicamente con ${itemSelected.stock} unidad/es de este producto`,
+      });
       return false;
     }
     // When stock is higher than quantity selected, or, there is no stock:
     if (itemSelected.stock >= item.quantity + quantity) {
       return addToCart1({ ...item, quantity: item.quantity + quantity });
     } else
-      alert(
-        `Lamentablemente no contamos con mas stock de "${itemSelected.title}"`
-      );
+      MySwal.fire({
+        icon: "error",
+        title: "Mil disculpas!",
+        text: `Lamentablemente no contamos con mas stock de "${itemSelected.title}"`,
+      });
     return false;
   }
   async function addToCart1(item) {

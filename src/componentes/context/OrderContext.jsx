@@ -10,6 +10,8 @@ import {
   where,
   writeBatch,
 } from "firebase/firestore";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const OrderContext = createContext([]);
 export const useOrderContext = () => useContext(OrderContext);
@@ -19,6 +21,7 @@ const OrderContextProvider = ({ children }) => {
   const [countOrder, setCountOrder] = useState(0);
   const [orderId, setOrderId] = useState(null);
   const db = getFirestore();
+  const MySwal = withReactContent(Swal);
 
   // Next function is to create a new order in the database:
   function generateOrder(client) {
@@ -56,18 +59,22 @@ const OrderContextProvider = ({ children }) => {
     const isThereAnyStock = () => {
       //To make sure the quantity is not higher than the stock when stock is not 0:
       if (itemSelected.stock > 0 && itemSelected.stock < quantity) {
-        alert(
-          `Contamos unicamente con ${itemSelected.stock} unidad/es de este producto`
-        );
+        MySwal.fire({
+          icon: "error",
+          title: "Mil disculpas!",
+          text: `Contamos unicamente con ${itemSelected.stock} unidad/es de este producto`,
+        });
         return false;
       }
       // When stock is higher than quantity selected, or, there is no stock:
       if (itemSelected.stock >= quantity) {
         return addToCart({ ...item, quantity: quantity });
       } else
-        alert(
-          `Lamentablemente no contamos con mas stock de "${itemSelected.title}"`
-        );
+        MySwal.fire({
+          icon: "error",
+          title: "Mil disculpas!",
+          text: `Lamentablemente no contamos con mas stock de "${itemSelected.title}"`,
+        });
       return false;
     };
     const index = cartList.findIndex((prod) => prod.id === item.id);
@@ -79,9 +86,10 @@ const OrderContextProvider = ({ children }) => {
         // console.log(cartList[index].quantity < itemSelected.stock);
         return isThereAnyStock();
       } else
-        alert(
-          `Contamos unicamente con ${itemSelected.stock} unidad/es de ${itemSelected.title}. Mil disculpas! `
-        );
+        MySwal.fire({
+          icon: "error",
+          text: `Contamos unicamente con ${itemSelected.stock} unidad/es de ${itemSelected.title}. Mil disculpas! `,
+        });
     }
     if (index === -1) {
       return isThereAnyStock();
